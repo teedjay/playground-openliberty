@@ -9,9 +9,23 @@ mvn clean
 mvn package liberty:run-server
 ```
 
-Started application will be available here
+Started application will be available here.
 ```
 http://localhost:9080/openliberty/rest/ping
+
+curl -i http://localhost:9080/openliberty/rest/ping
+curl -i http://localhost:9080/openliberty/rest/ping/MyTextHere
+```
+
+You can access health info and a UI for interactive testing by using url's below.
+```
+http://localhost:9080/health
+
+http://localhost:9080/openapi
+http://localhost:9080/openapi/ui/
+
+See the main/liberty/server.xml for how to enable HTTPS and basic security
+curl -i -k -u admin:adminpwd https://localhost:9443/metrics
 ```
 
 ## Fast development, hot redeploy

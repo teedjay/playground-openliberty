@@ -1,11 +1,33 @@
 <server description="Open Liberty Development Server">
 
     <featureManager>
-        <feature>jaxrs-2.0</feature>
+
+        <!-- https://www.ibm.com/support/knowledgecenter/en/SS7K4U_liberty/com.ibm.websphere.wlp.zseries.doc/ae/rwlp_feat.html
+        <feature>javaee-7.0</feature>
+        <feature>microProfile-1.3</feature>
+        -->
+
+        <feature>microProfile-1.3</feature>
+
     </featureManager>
+
+    <quickStartSecurity userName="admin" userPassword="adminpwd"/>
+    <keyStore id="defaultKeyStore" password="mpKeystore"/>
 
     <!--
     <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}" id="defaultHttpEndpoint" host="*" />
+    -->
+
+    <!--
+    <basicRegistry id="basic" realm="customRealm">
+        <user name="user1" password="p@ssw0rd" />
+        <user name="user2" password="pa$$w0rd" />
+        <user name="user3" password="{xor}Lz4sLCgwLTs=" />
+        <group name="admins">
+            <member name="user1" />
+            <member name="user3" />
+        </group>
+    </basicRegistry>
     -->
 
 </server>
