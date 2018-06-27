@@ -11,10 +11,14 @@ mvn package liberty:run-server
 
 Started application will be available here.
 ```
-http://localhost:9080/openliberty/rest/ping
+http://localhost:9080/openliberty/
 
 curl -i http://localhost:9080/openliberty/rest/ping
-curl -i http://localhost:9080/openliberty/rest/ping/MyTextHere
+curl -i http://localhost:9080/openliberty/rest/ping/SomeTextHere
+
+curl -i http://localhost:9080/openliberty/rest/pong
+curl -i http://localhost:9080/openliberty/rest/pong/OtherTextHere
+
 ```
 
 You can access health info and a UI for interactive testing by using url's below.
@@ -37,4 +41,10 @@ mvn compile
 The new version will be hot deployed immediately, check the console log :
 ```
 [INFO] [AUDIT   ] CWWKZ0003I: The application openliberty updated in 0,017 seconds.
+```
+
+## Debugging
+To start with debugging activated run the command below and then use "Attach to Local Process" from IDEA :    
+```
+mvn package liberty:debug-server
 ```

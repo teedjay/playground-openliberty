@@ -9,22 +9,22 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Produces(MediaType.TEXT_PLAIN)
-@Path("/ping")
-public class PingResource {
+@Path("/pong")
+public class PongResource {
 
     @GET
-    public String ping() {
-        return "pong";
+    @Produces(MediaType.TEXT_PLAIN + "; charset=utf-8")
+    public String pong() {
+        return "Tekst fra PongResource.java som ble lagt til og hot deployed mens serveren var kjørende.";
     }
 
     @GET
     @Path("{message}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response complexPing(@PathParam("message") String message) {
+    public Response complexPong(@PathParam("message") String message) {
         JsonObject jo = Json.createObjectBuilder()
                 .add("message", message)
-                .add("reverse", new StringBuffer(message).reverse().toString())
+                .add("currentTimeMillis", System.currentTimeMillis())
                 .build();
         return Response.ok(jo).build();
     }
